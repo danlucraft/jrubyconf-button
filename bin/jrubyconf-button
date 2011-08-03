@@ -1,0 +1,24 @@
+
+require 'java'
+require 'rubygems'
+require 'swt'
+
+class ButtonApp
+  attr_reader :shell
+
+  def initialize
+    display = Swt::Widgets::Display.get_current
+    @shell = Swt::Widgets::Shell.new
+    @shell.setLayout(Swt::Layout::FillLayout.new)
+    button = Swt::Widgets::Button.new(@shell, Swt::SWT::PUSH)
+    button.set_text("Click Me")
+    button.add_selection_listener { puts "Clicked!" }
+    @shell.pack
+    @shell.open
+  end
+end
+
+app = ButtonApp.new
+
+Swt.event_loop { app.shell.disposed? }
+
