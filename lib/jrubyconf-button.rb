@@ -5,7 +5,7 @@ require 'swt'
 
 class ButtonApp
   attr_reader :shell
-
+  
   LABELS = ["Drink Me", "Eat Me"]
 
   def initialize
