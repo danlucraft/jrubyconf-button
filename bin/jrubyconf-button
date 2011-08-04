@@ -1,4 +1,4 @@
-#!/usr/bin/env jruby -J-d32 -J-client -J-Dfile.encoding=UTF8 -J-Xmx320m -J-Xss1024k -J-Djruby.memory.max=320m -J-Djruby.stack.max=1024k
+#!/usr/bin/env jruby
 
 $:.unshift(File.expand_path("../../lib", __FILE__))
 require 'jrubyconf-button'
