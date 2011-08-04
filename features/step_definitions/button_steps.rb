@@ -1,4 +1,8 @@
 
+def open_window
+  Swt.sync_exec { @win = ButtonApp.new }
+end
+
 def button_text
   Swt.bot.button.text
 end
@@ -8,7 +12,7 @@ def click_button(text)
 end
 
 Given /^the window is open$/ do
-  Swt.sync_exec { @win = ButtonApp.new }
+  open_window
 end
 
 When /^I press the button "([^"]*)"$/ do |text|
