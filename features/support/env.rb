@@ -1,9 +1,9 @@
-$:.unshift(File.expand_path("../../../bin", __FILE__))
+$:.unshift(File.expand_path("../../../lib", __FILE__))
 
-Dir["vendor/*.jar"].each do |fn|
-  require fn unless fn =~ /source/
-end
+require 'jrubyconf-button'
 
-Swt.sync_exec do
-  load 'jrubyconf-button'
+After do
+  if @win
+    Swt.sync_exec { @win.close }
+  end
 end
