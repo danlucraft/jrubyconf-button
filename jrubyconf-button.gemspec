@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "jrubyconf-button"
-  s.version     = "5"
+  s.version     = "6"
   s.platform    = "java"
   s.authors     = ["Daniel Lucraft"]
   s.email       = ["dan@fluentradical.com"]
