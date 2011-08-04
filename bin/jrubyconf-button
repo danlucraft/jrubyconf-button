@@ -1,3 +1,4 @@
+#!/usr/bin/env jruby -J-d32 -J-client -J-Dfile.encoding=UTF8 -J-Xmx320m -J-Xss1024k -J-Djruby.memory.max=320m -J-Djruby.stack.max=1024k
 
 require 'java'
 require 'rubygems'
@@ -6,13 +7,15 @@ require 'swt'
 class ButtonApp
   attr_reader :shell
 
+  LABELS = ["Drink Me", "Eat Me"]
+
   def initialize
     display = Swt::Widgets::Display.get_current
     @shell = Swt::Widgets::Shell.new
     @shell.setLayout(Swt::Layout::FillLayout.new)
     button = Swt::Widgets::Button.new(@shell, Swt::SWT::PUSH)
-    button.set_text("Click Me")
-    button.add_selection_listener { puts "Clicked!" }
+    button.set_text(LABELS[0])
+    button.add_selection_listener { button.text = LABELS[(LABELS.index(button.text) - 1).abs] }
     @shell.pack
     @shell.open
   end
@@ -21,4 +24,3 @@ end
 app = ButtonApp.new
 
 Swt.event_loop { app.shell.disposed? }
-
